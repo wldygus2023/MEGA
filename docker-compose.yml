@@ -1,14 +1,29 @@
 services:
   api:
     build:
-      context: ./api   # ./api 디렉토리에서 Dockerfile 참조
+      context: ./api
     ports:
       - "5038:5038"
     environment:
       CONNECTION_STRING: mongodb+srv://admin:2024@cluster0.mo4fo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+    command: tail -f /dev/null
+    restart: always
 
   ui:
     build:
-      context: ./ui    # ./ui 디렉토리에서 Dockerfile 참조
+      context: ./ui
     ports:
       - "3000:3000"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+    restart: always

@@ -1,6 +1,6 @@
 <script>
 	let name = "Todo App";
-	let API_URL = "http://localhost:5038/";
+	const API_URL = "http://43.201.21.240:5038/api/sample_mflix";
 	let notes = [];
 	let newNotes = "";
 

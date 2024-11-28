@@ -1,0 +1,14 @@
+services:
+  api:
+    build:
+      context: ./api   # ./api 디렉토리에서 Dockerfile 참조
+    ports:
+      - "5038:5038"
+    environment:
+      CONNECTION_STRING: mongodb+srv://admin:2024@cluster0.mo4fo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+  ui:
+    build:
+      context: ./ui    # ./ui 디렉토리에서 Dockerfile 참조
+    ports:
+      - "3000:3000"
